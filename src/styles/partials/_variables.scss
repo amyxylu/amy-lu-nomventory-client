@@ -1,3 +1,17 @@
+// Responsive Design Variables
+
+$tablet-breakpoint: 768px;
+
+$desktop-breakpoint: 1280px;
+
+$mobile-spacing: 1rem;
+
+$tablet-spacing: 1.5rem; // This will also be for desktop
+
+$tablet-margin: 2.5rem; // Exterior Margin for tablet size
+
+$desktop-column: 3.938rem; // Column width for desktop
+
 // Colour Variables
 
 $light-blue: #ddeaeb; // Darker background colour + font colour when paired with dark blue background
@@ -10,4 +24,6 @@ $bg-light: #eaeaea; // Main body background
 
 $beige: #e6dbc6; // Image Background colour
 
-$body-font-stack: "Handjet", "Roboto", "Helvetica", serif;
+// Font Variables
+
+$body-font-stack: "Handjet", "Roboto", "Helvetica", sans-serif;
