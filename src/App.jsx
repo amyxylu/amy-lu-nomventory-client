@@ -7,6 +7,7 @@ function App() {
       <Routes>
         <Route path="/" element="" />
         <Route path="/recipes" element="" />
+        <Route path="/recipes/:recipeId" element="" />
         <Route path="/settings" element="" />
       </Routes>
     </BrowserRouter>
