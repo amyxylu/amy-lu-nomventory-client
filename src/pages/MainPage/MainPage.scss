@@ -1,2 +1,27 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
+
+.main-page {
+  margin: $mobile-spacing;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__hero {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    &-img {
+      width: 90%;
+      border: 3.5px dashed $dark-blue;
+      margin: $mobile-spacing;
+    }
+  }
+
+  &__content {
+    &-title {
+      text-align: center;
+    }
+  }
+}
