@@ -13,7 +13,11 @@ function IngredientSelector() {
         const response = await axios.get(
           "http://localhost:8080/api/ingredients"
         );
-        setIngredients(response.data);
+
+        const sortedIngredients = response.data.sort((a, b) =>
+          a.ingredient_name.localeCompare(b.ingredient_name)
+        );
+        setIngredients(sortedIngredients);
       } catch (err) {
         setError("Failed to retrieve ingredients");
         console.error("Error:", err);
@@ -29,9 +33,9 @@ function IngredientSelector() {
     <div className="ingredients">
       {loading && <p>Loading Ingredients...</p>}
       {error && <p className="error">{error}</p>}
-      <ul className="ingredient__list">
+      <ul className="ingredients__list">
         {ingredients.map((ingredient) => (
-          <li key={ingredient.id} className="ingredient__list-item">
+          <li key={ingredient.id} className="ingredients__list-item">
             {ingredient.ingredient_name}
           </li>
         ))}
