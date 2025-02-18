@@ -39,11 +39,11 @@ function RecipesPage() {
       ) : recipes.length === 0 ? (
         <p>No recipes found.</p>
       ) : (
-        <article className="recipes-page__recipes">
+        <div className="recipes-page__recipes">
           {recipes.map((recipe) => (
             <RecipeCard key={recipe.id} recipe={recipe} />
           ))}
-        </article>
+        </div>
       )}
     </section>
   );
