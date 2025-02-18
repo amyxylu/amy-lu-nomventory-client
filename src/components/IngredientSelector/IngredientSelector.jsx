@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./IngredientSelector.scss";
 import CloseIcon from "../../assets/icons/CloseIcon";
+import PlusIcon from "../../assets/icons/PlusIcon";
 
 function IngredientSelector() {
   const [ingredients, setIngredients] = useState([]);
@@ -76,24 +77,27 @@ function IngredientSelector() {
       {loading && <p>Loading Ingredients...</p>}
       {error && <p className="error">{error}</p>}
 
-      <ul className="ingredient-selector__list">
-        {selectedIngredients.map((ingredient) => (
-          <li key={ingredient.id} className="ingredient-selector__list-item">
-            {ingredient.ingredient_name}
-            <button onClick={() => handleRemoveIngredient(ingredient.id)}>
-              <CloseIcon />
-            </button>
-          </li>
-        ))}
-      </ul>
-
-      <input
-        type="text"
-        placeholder="Type an ingredient..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className="ingredient-selector__input"
-      />
+      <div className="ingredient-selector__input-container">
+        <div className="ingredient-selector__selected">
+          {selectedIngredients.map((ingredient) => (
+            <span
+              key={ingredient.id}
+              className="ingredient-selector__selected-item">
+              {ingredient.ingredient_name}
+              <button onClick={() => handleRemoveIngredient(ingredient.id)}>
+                <CloseIcon className="ingredient-selector__selected-remove" />
+              </button>
+            </span>
+          ))}
+        </div>
+        <input
+          type="text"
+          placeholder="Type an ingredient..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="ingredient-selector__input"
+        />
+      </div>
 
       {filteredIngredients.length > 0 && (
         <ul className="ingredient-selector__autocomplete">
@@ -102,6 +106,7 @@ function IngredientSelector() {
               key={ingredient.id}
               onClick={() => handleSelectIngredient(ingredient)}
               className="ingredient-selector__autocomplete-item">
+              <PlusIcon className="ingredient-selector__autocomplete-icon" />
               {ingredient.ingredient_name}
             </li>
           ))}

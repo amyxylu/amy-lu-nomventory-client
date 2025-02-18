@@ -12,3 +12,29 @@
     @content;
   }
 }
+
+@mixin form-field {
+  // overflow: auto;
+  // resize: none;
+  padding: 0.5rem;
+  border-radius: 12px;
+  height: 2.375rem;
+  border: 2px solid $med-blue;
+  font-family: $body-font-stack;
+  color: $dark-blue;
+  background-color: $bg-light;
+}
+
+@mixin form-focus {
+  border: 2px solid $dark-blue;
+  outline: none;
+}
+
+@mixin tag-style {
+  background-color: $dark-blue;
+  color: $light-blue;
+  font-size: 1rem;
+  font-family: $body-font-stack;
+  border-radius: 8px;
+  padding: 0.25rem 0.5rem;
+}

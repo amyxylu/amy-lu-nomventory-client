@@ -1,19 +1,25 @@
-function CloseIcon({ fill = "black", size = 16 }) {
+const XIcon = ({
+  size = 24,
+  color = "currentColor",
+  strokeWidth = 2,
+  className = "",
+}) => {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
-      viewBox="0 0 16 16"
-      fill={fill}>
-      <polygon
-        fillRule="evenodd"
-        points="8 9.414 3.707 13.707 2.293 12.293 6.586 8 
-                2.293 3.707 3.707 2.293 8 6.586 12.293 2.293 
-                13.707 3.707 9.414 8 13.707 12.293 12.293 13.707 8 9.414"
-      />
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke={color}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={`x-icon ${className}`}
+      xmlns="http://www.w3.org/2000/svg">
+      <line x1="18" y1="6" x2="6" y2="18" />
+      <line x1="6" y1="6" x2="18" y2="18" />
     </svg>
   );
-}
+};
 
-export default CloseIcon;
+export default XIcon;
