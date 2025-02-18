@@ -10,11 +10,20 @@
   padding-top: $mobile-spacing;
   background-color: $light-blue;
 
+  @include tablet {
+    padding-top: $tablet-spacing;
+  }
+
   &__logo {
     color: $dark-blue;
     font-family: $logo-font-stack;
     font-size: 1.5rem;
     padding: $mobile-spacing;
+
+    @include tablet {
+      font-size: 2rem;
+      padding: $tablet-spacing;
+    }
   }
 
   &__nav {
@@ -22,16 +31,28 @@
     width: 100%;
     padding: 0.5rem $mobile-spacing;
 
+    @include tablet {
+      padding: 1rem $tablet-spacing;
+    }
+
     &-list {
       display: flex;
       justify-content: center;
       gap: $mobile-spacing;
+
+      @include tablet {
+        gap: $tablet-margin;
+      }
     }
 
     &-link {
       font-family: $nav-font-stack;
       font-size: 0.75rem;
       color: $dark-blue;
+
+      @include tablet {
+        font-size: 1rem;
+      }
     }
   }
 }
