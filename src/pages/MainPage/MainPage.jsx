@@ -1,4 +1,5 @@
 import "./MainPage.scss";
+import IngredientSelector from "../../components/IngredientSelector/IngredientSelector";
 
 function MainPage() {
   return (
@@ -11,6 +12,7 @@ function MainPage() {
       </article>
       <article className="main-page__content">
         <h1 className="main-page__content-title">Select your ingredients:</h1>
+        <IngredientSelector />
       </article>
     </section>
   );
