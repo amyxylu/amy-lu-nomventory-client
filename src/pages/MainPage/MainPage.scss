@@ -8,7 +8,11 @@
   align-items: center;
 
   @include tablet {
-    margin: $tablet-spacing auto;
+    margin: 0 auto;
+  }
+
+  @include desktop {
+    max-width: 63rem;
   }
 
   &__hero {
@@ -24,13 +28,26 @@
       width: 90%;
       border: 3.5px dashed $dark-blue;
       margin: $mobile-spacing;
+
+      @include tablet {
+        margin: $tablet-spacing;
+      }
+
+      @include desktop {
+        width: 40rem;
+      }
     }
   }
 
   &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $mobile-spacing;
+
     @include tablet {
-      width: 75%;
+      width: 80%;
       margin: 0 $tablet-spacing;
+      gap: $tablet-spacing;
     }
 
     &-title {
