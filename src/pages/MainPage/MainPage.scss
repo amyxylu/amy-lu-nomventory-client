@@ -54,4 +54,17 @@
       text-align: center;
     }
   }
+
+  &__search-btn {
+    font-family: $brand-font-stack;
+    font-size: 1rem;
+    font-weight: 400;
+    background-color: $dark-blue;
+    color: $light-blue;
+    max-width: 20rem;
+    margin: 0 auto;
+    padding: 0.5rem 1.25rem;
+    border-radius: 20px;
+    cursor: pointer;
+  }
 }

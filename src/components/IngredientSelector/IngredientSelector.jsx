@@ -4,9 +4,8 @@ import "./IngredientSelector.scss";
 import CloseIcon from "../../assets/icons/CloseIcon";
 import PlusIcon from "../../assets/icons/PlusIcon";
 
-function IngredientSelector() {
+function IngredientSelector({ selectedIngredients, setSelectedIngredients }) {
   const [ingredients, setIngredients] = useState([]);
-  const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredIngredients, setFilteredIngredients] = useState([]);
   const [loading, setLoading] = useState(true);
