@@ -15,7 +15,6 @@ body {
   min-height: 100vh;
   font-family: $body-font-stack;
   font-weight: 400;
-  color: $instock-black;
   background-color: $bg-light;
 
   @include desktop {
