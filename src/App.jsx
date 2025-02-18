@@ -5,6 +5,7 @@ import MainPage from "./pages/MainPage/MainPage";
 import RecipesPage from "./pages/RecipesPage/RecipesPage";
 import RecipeDetailsPage from "./pages/RecipeDetailsPage/RecipeDetailsPage";
 import PreferencesPage from "./pages/PreferencesPage/PreferencesPage";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/cuisines/:cuisineType" element="" />
         <Route path="/preferences" element={<PreferencesPage />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

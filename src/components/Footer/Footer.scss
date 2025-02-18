@@ -1,0 +1,22 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.footer {
+  display: flex;
+  justify-content: center;
+  margin: $mobile-spacing;
+
+  @include tablet {
+    margin: $tablet-spacing;
+  }
+
+  &__text {
+    font-family: $nav-font-stack;
+    color: darkgray;
+    font-size: 0.625rem;
+
+    @include tablet {
+      font-size: 0.75rem;
+    }
+  }
+}
