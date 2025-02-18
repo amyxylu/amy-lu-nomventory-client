@@ -17,6 +17,11 @@
       color: $light-blue;
       font-weight: 600;
       border-radius: 8px;
+
+      &--selected {
+        background-color: $green;
+        color: $dark-blue;
+      }
     }
   }
 }
