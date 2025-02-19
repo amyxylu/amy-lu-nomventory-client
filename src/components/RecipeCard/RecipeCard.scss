@@ -5,8 +5,7 @@
   display: flex;
   gap: $mobile-spacing;
   background-color: $light-blue;
-  border: 3px dashed $dark-blue;
-  border-width: 3px;
+  border: 3.5px dashed $dark-blue;
   border-radius: 12px;
   border-image-slice: 1;
   padding: $mobile-spacing;
@@ -20,10 +19,12 @@
     background-color: white;
     width: 100%;
     padding: 0.5rem;
+    border: 2.5px dashed $dark-blue;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 0.5rem;
   }
 
   &__buttons {
@@ -39,5 +40,10 @@
     background-color: $dark-blue;
     padding: 0.1rem 0.3rem;
     border-radius: 8px;
+  }
+
+  &__description {
+    line-height: 1.25rem;
+    margin: 0 0.5rem;
   }
 }

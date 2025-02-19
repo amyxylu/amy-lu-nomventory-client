@@ -53,6 +53,7 @@ function RecipeCard({ recipe }) {
           <li className="recipe-card__btn">{recipe.difficulty_level}</li>
           <li className="recipe-card__btn">{cuisineName}</li>
         </ul>
+        <p className="recipe-card__description">{recipe.description}</p>
       </div>
     </article>
   );
