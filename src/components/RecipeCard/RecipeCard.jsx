@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./RecipeCard.scss";
 
-function RecipeCard({ recipe }) {
+function RecipeCard({ recipe, className = "" }) {
   const [cuisineName, setCuisineName] = useState("");
 
   useEffect(() => {
@@ -38,7 +38,7 @@ function RecipeCard({ recipe }) {
   const totalCookTime = (recipe.prep_time || 0) + (recipe.cook_time || 0);
 
   return (
-    <article className="recipe-card">
+    <article className={`recipe-card ${className}`}>
       <Link to={`/recipes/${recipe.id}`} className="recipe-card__link">
         {recipe.image_url && (
           <img

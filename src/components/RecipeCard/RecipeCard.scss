@@ -37,6 +37,10 @@
 
   &__header {
     font-size: 1rem;
+
+    @include tablet {
+      font-size: 1.25rem;
+    }
   }
 
   &__buttons {
@@ -52,6 +56,10 @@
     background-color: $dark-blue;
     padding: 0.1rem 0.3rem;
     border-radius: 8px;
+
+    @include tablet {
+      font-size: 1rem;
+    }
   }
 
   &__description {
