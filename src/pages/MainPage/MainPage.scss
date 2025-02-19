@@ -30,10 +30,6 @@
       margin: $mobile-spacing;
 
       @include tablet {
-        margin: $tablet-spacing;
-      }
-
-      @include desktop {
         width: 40rem;
       }
     }

@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 
   @include tablet {
     margin: 0 auto;
@@ -19,10 +20,23 @@
     padding: $mobile-spacing 0;
   }
 
-  &__recipes {
+  .recipes-page__recipes {
     display: flex;
     flex-direction: column;
     gap: $mobile-spacing;
     width: 100%;
+
+    @include tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      max-width: 50rem; // Adjust based on design
+      margin: 0 auto;
+
+      & > * {
+        // Target direct child elements (recipe cards)
+        flex: 1 1 calc(50% - ($mobile-spacing / 2)); // Adjust for gap
+        max-width: calc(50% - ($mobile-spacing / 2)); // Prevent overflow
+      }
+    }
   }
 }
