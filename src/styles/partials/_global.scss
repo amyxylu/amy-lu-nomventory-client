@@ -16,6 +16,7 @@ body {
   font-family: $body-font-stack;
   font-weight: 400;
   background-color: $bg-light;
+  color: $dark-blue;
 
   @include desktop {
     margin: 0 auto;
