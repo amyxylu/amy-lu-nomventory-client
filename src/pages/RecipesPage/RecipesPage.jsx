@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { BASE_URL } from "../../config";
 import axios from "axios";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import "./RecipesPage.scss";
@@ -14,7 +15,7 @@ function RecipesPage() {
     if (!location.state?.recipes) {
       const getAllRecipes = async () => {
         try {
-          const response = await axios.get("http://localhost:8080/api/recipes");
+          const response = await axios.get(`${BASE_URL}/api/recipes`);
           setRecipes(response.data);
         } catch (err) {
           console.error("Error fetching all recipes:", err);

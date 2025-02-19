@@ -18,7 +18,7 @@ function App() {
         <Route path="/recipes" element={<RecipesPage />} />
         <Route path="/recipes/:recipeId" element={<RecipeDetailsPage />} />
         <Route path="/cuisines" element={<CuisinesPage />} />
-        <Route path="/cuisines/:cuisineType" element={<CuisineRecipesPage />} />
+        <Route path="/cuisines/:cuisineId" element={<CuisineRecipesPage />} />
         <Route path="/preferences" element={<PreferencesPage />} />
       </Routes>
       <Footer />
