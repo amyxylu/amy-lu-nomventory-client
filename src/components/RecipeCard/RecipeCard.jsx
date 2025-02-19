@@ -1,9 +1,8 @@
+import { BASE_URL } from "../../config";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./RecipeCard.scss";
-
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
 
 function RecipeCard({ recipe }) {
   const [cuisineName, setCuisineName] = useState("");
