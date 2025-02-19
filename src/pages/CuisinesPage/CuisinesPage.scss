@@ -1,0 +1,17 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.cuisines-page {
+  margin: $mobile-spacing;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include tablet {
+    margin: 0 auto;
+  }
+
+  @include desktop {
+    max-width: 63rem;
+  }
+}
