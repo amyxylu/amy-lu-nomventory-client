@@ -6,12 +6,31 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: $mobile-spacing;
 
   @include tablet {
-    margin: 0 auto;
+    margin: $tablet-spacing auto;
+    gap: $tablet-spacing;
   }
 
   @include desktop {
     max-width: 63rem;
+  }
+
+  &__header {
+    text-align: center;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $mobile-spacing;
+
+    @include tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: $tablet-spacing;
+    }
   }
 }

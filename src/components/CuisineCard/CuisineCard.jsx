@@ -9,7 +9,7 @@ function CuisineCard({ cuisine }) {
           ? cuisine.image_url
           : `/${cuisine.image_url}`
       }`
-    : "/src/assets/images/fridge.jpg";
+    : "./src/assets/images/cooking_mascot.jpg";
 
   return (
     <li className="cuisine-card">

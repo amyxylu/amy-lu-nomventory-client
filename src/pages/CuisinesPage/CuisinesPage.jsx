@@ -25,7 +25,7 @@ function CuisinesPage() {
       <h1 className="cuisines-page__header">Choose Your Cuisine!</h1>
       <ul className="cuisines-page__list">
         {cuisines.map((cuisine) => (
-          <CuisineCard key={cuisines.id} cuisine={cuisine} />
+          <CuisineCard key={cuisine.id} cuisine={cuisine} />
         ))}
       </ul>
     </section>
