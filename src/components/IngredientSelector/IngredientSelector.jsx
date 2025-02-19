@@ -60,17 +60,6 @@ function IngredientSelector({ selectedIngredients, setSelectedIngredients }) {
     );
   };
 
-  //   const getRecipesByIngredients = async () => {
-  //     try {
-  //       const response = await axios.post("http://localhost:8080/api/recipes", {
-  //         ingredients: selectedIngredients,
-  //       });
-  //       console.log("Recipes:", response.data);
-  //     } catch (err) {
-  //       console.error("Error fetching recipes:", err);
-  //     }
-  //   };
-
   return (
     <div className="ingredient-selector">
       {loading && <p>Loading Ingredients...</p>}

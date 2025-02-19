@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "./RecipeCard.scss";
 
@@ -39,22 +40,24 @@ function RecipeCard({ recipe }) {
 
   return (
     <article className="recipe-card">
-      {recipe.image_url && (
-        <img
-          src={imageUrl}
-          alt={recipe.recipe_name}
-          className="recipe-card__image"
-        />
-      )}
-      <div className="recipe-card__content">
-        <h3 className="recipe-card__header">{recipe.recipe_name}</h3>
-        <ul className="recipe-card__buttons">
-          <li className="recipe-card__btn">{totalCookTime} min</li>
-          <li className="recipe-card__btn">{recipe.difficulty_level}</li>
-          <li className="recipe-card__btn">{cuisineName}</li>
-        </ul>
-        <p className="recipe-card__description">{recipe.description}</p>
-      </div>
+      <Link to={`/recipes/${recipe.id}`} className="recipe-card__link">
+        {recipe.image_url && (
+          <img
+            src={imageUrl}
+            alt={recipe.recipe_name}
+            className="recipe-card__image"
+          />
+        )}
+        <div className="recipe-card__content">
+          <h3 className="recipe-card__header">{recipe.recipe_name}</h3>
+          <ul className="recipe-card__buttons">
+            <li className="recipe-card__btn">{totalCookTime} min</li>
+            <li className="recipe-card__btn">{recipe.difficulty_level}</li>
+            <li className="recipe-card__btn">{cuisineName}</li>
+          </ul>
+          <p className="recipe-card__description">{recipe.description}</p>
+        </div>
+      </Link>
     </article>
   );
 }
