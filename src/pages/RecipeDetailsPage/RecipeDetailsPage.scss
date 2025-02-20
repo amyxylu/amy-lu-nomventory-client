@@ -11,12 +11,13 @@
   border-radius: 12px;
 
   @include tablet {
-    margin: $tablet-spacing auto;
+    margin: $tablet-spacing;
     gap: $tablet-spacing;
   }
 
   @include desktop {
     max-width: 63rem;
+    margin: $tablet-spacing auto;
   }
 
   &__header {

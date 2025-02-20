@@ -5,6 +5,7 @@ import "./RecipeDetailsCard.scss";
 
 function RecipeDetailsCard({ recipe, className = "" }) {
   const [cuisineName, setCuisineName] = useState("");
+  const [ingredients, setIngredients] = useState([]);
 
   useEffect(() => {
     const getCuisineName = async () => {
@@ -33,6 +34,23 @@ function RecipeDetailsCard({ recipe, className = "" }) {
           : `/${recipe.image_url}`
       }`
     : "/src/assets/images/fridge.jpg";
+
+  useEffect(() => {
+    const getIngredients = async () => {
+      try {
+        const response = await axios.get(
+          `${BASE_URL}/api/recipes/${recipe.id}/ingredients`
+        );
+        setIngredients(response.data);
+      } catch (error) {
+        console.error("Error fetching ingredients:", error);
+      }
+    };
+
+    if (recipe.id) {
+      getIngredients();
+    }
+  }, [recipe.id]);
 
   const formatTextWithBold = (text) => {
     const parts = text.split(/(\*\*.*?\*\*)/g);
@@ -76,6 +94,22 @@ function RecipeDetailsCard({ recipe, className = "" }) {
             <strong>Servings:</strong> {recipe.servings}
           </li>
         </ul>
+
+        <div className="recipe-details__ingredients">
+          <h3 className="recipe-details__ingredients-header">Ingredients</h3>
+          <ul className="recipe-details__ingredients-list">
+            {ingredients.length > 0 ? (
+              ingredients.map((ingredient, index) => (
+                <li key={index} className="recipe-details__ingredients-item">
+                  {ingredient.quantity} {ingredient.ingredient_name}
+                </li>
+              ))
+            ) : (
+              <p>No ingredients available.</p>
+            )}
+          </ul>
+        </div>
+
         <div className="recipe-details__instructions">
           <h3 className="recipe-details__instructions-header">Instructions</h3>
           {recipe.instructions.split("\n").map((step, index) => (
