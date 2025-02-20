@@ -1,0 +1,61 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.recipe-details {
+  padding: $mobile-spacing;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $mobile-spacing;
+  border: 3.5px dashed $dark-blue;
+  border-radius: 12px;
+
+  &__img-container {
+    margin: 0 auto;
+    width: 75%;
+
+    @include tablet {
+      width: 50%;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    border: 2.5px dashed $dark-blue;
+    border-radius: 12px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: white;
+    padding: $mobile-spacing;
+    border: 2.5px dashed $dark-blue;
+    border-radius: 12px;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__cuisine {
+    text-align: center;
+  }
+
+  &__description {
+    text-align: center;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__instructions {
+    &-header {
+      text-align: center;
+    }
+  }
+}

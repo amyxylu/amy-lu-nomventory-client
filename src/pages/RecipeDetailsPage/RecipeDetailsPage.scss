@@ -1,2 +1,25 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
+
+.recipe-details-page {
+  margin: $mobile-spacing;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $mobile-spacing;
+  background-color: $light-blue;
+  border-radius: 12px;
+
+  @include tablet {
+    margin: $tablet-spacing auto;
+    gap: $tablet-spacing;
+  }
+
+  @include desktop {
+    max-width: 63rem;
+  }
+
+  &__header {
+    text-align: center;
+  }
+}
