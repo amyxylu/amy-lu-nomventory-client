@@ -55,6 +55,16 @@ function RecipeCard({ recipe, className = "" }) {
             <li className="recipe-card__btn">{cuisineName}</li>
           </ul>
           <p className="recipe-card__description">{recipe.description}</p>
+          {recipe.match_percentage !== undefined && (
+            <div className="recipe-card__progress">
+              <p>Match: {recipe.match_percentage}%</p>
+              <div className="progress-bar">
+                <div
+                  className="progress-fill"
+                  style={{ width: `${recipe.match_percentage}%` }}></div>
+              </div>
+            </div>
+          )}
         </div>
       </Link>
     </article>
