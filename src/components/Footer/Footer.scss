@@ -3,13 +3,18 @@
 
 .footer {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: $mobile-spacing;
   margin: $mobile-spacing;
 
   @include tablet {
     margin: $tablet-spacing;
   }
 
+  &__audio {
+    height: 2rem;
+  }
   &__text {
     font-family: $nav-font-stack;
     color: darkgray;
