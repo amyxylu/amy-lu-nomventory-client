@@ -51,6 +51,10 @@ function MainPage() {
           src="/src/assets/images/fridge.jpg"
           className="main-page__hero-img"
         />
+        <img
+          src="/src/assets/images/jumping.gif"
+          className="main-page__hero-sticker"
+        />
       </article>
       <article className="main-page__content">
         <h1 className="main-page__content-title">Select your ingredients:</h1>
