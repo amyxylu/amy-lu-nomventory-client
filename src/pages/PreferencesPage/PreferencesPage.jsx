@@ -25,7 +25,10 @@ function PreferencesPage() {
       <article className="preferences-page__content">
         <h1 className="preferences-page__title">Ingredient Preferences</h1>
         <p className="preferences-page__description">
-          Select ingredients you want to exclude from your recipe searches.
+          Allergic? Or just find the ingredient plain yucky?
+        </p>
+        <p className="preferences-page__description">
+          Select ingredients you want to exclude from your recipe searches!
         </p>
 
         <IngredientSelector

@@ -1,2 +1,49 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
+
+.preferences-page {
+  margin: $mobile-spacing;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include tablet {
+    margin: $tablet-spacing;
+  }
+
+  @include desktop {
+    max-width: 63rem;
+    margin: $tablet-spacing auto;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $mobile-spacing;
+    background-color: $light-blue;
+    border-radius: 12px;
+    padding: $mobile-spacing;
+    border: 3.5px dashed $dark-blue;
+
+    @include tablet {
+      padding: $tablet-spacing;
+    }
+  }
+
+  &__description {
+    text-align: center;
+  }
+
+  &__save-btn {
+    font-family: $brand-font-stack;
+    font-size: 1rem;
+    font-weight: 400;
+    background-color: $dark-blue;
+    color: $light-blue;
+    max-width: 20rem;
+    margin: 0 auto;
+    padding: 0.5rem 1.25rem;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+}
