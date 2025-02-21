@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./MainPage.scss";
@@ -6,11 +6,22 @@ import IngredientSelector from "../../components/IngredientSelector/IngredientSe
 
 function MainPage() {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
+  const [excludedIngredients, setExcludedIngredients] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedExcluded = localStorage.getItem("excludedIngredients");
+    if (storedExcluded) {
+      setExcludedIngredients(JSON.parse(storedExcluded));
+    }
+  }, []);
 
   const handleSearchRecipes = async () => {
     try {
       const ingredientIds = selectedIngredients.map(
+        (ingredient) => ingredient.id
+      );
+      const excludedIds = excludedIngredients.map(
         (ingredient) => ingredient.id
       );
       if (ingredientIds.length === 0) {
@@ -22,6 +33,7 @@ function MainPage() {
         "http://localhost:8080/api/filters/recipes",
         {
           ingredients: ingredientIds,
+          excludeIngredients: excludedIds,
         }
       );
 
