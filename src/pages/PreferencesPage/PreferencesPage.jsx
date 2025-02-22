@@ -35,12 +35,13 @@ function PreferencesPage() {
           selectedIngredients={excludedIngredients}
           setSelectedIngredients={setExcludedIngredients}
         />
-
-        <button
-          onClick={handleSavePreferences}
-          className="preferences-page__save-btn">
-          Save Preferences
-        </button>
+        <div className="preferences-page__btn-container">
+          <button
+            onClick={handleSavePreferences}
+            className="preferences-page__save-btn">
+            Save Preferences
+          </button>
+        </div>
       </article>
     </section>
   );

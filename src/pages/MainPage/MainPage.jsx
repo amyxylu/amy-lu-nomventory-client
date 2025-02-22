@@ -52,7 +52,7 @@ function MainPage() {
           className="main-page__hero-img"
         />
         <img
-          src="/src/assets/images/jumping.gif"
+          src="/src/assets/images/Bounce.gif"
           className="main-page__hero-sticker"
         />
       </article>
@@ -62,9 +62,13 @@ function MainPage() {
           selectedIngredients={selectedIngredients}
           setSelectedIngredients={setSelectedIngredients}
         />
-        <button onClick={handleSearchRecipes} className="main-page__search-btn">
-          Find My Recipes!
-        </button>
+        <div className="main-page__btn-container">
+          <button
+            onClick={handleSearchRecipes}
+            className="main-page__search-btn">
+            Find My Recipes!
+          </button>
+        </div>
       </article>
     </section>
   );

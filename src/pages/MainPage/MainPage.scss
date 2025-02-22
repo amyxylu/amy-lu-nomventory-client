@@ -37,13 +37,18 @@
 
     &-sticker {
       position: absolute;
-      bottom: 3.5%;
-      left: 5%;
+      bottom: 2.5%;
+      left: 2.5%;
       width: 25%;
 
       @include tablet {
-        left: 7.5%;
-        bottom: 2.5%;
+        width: 12rem;
+        left: 15%;
+        bottom: 0%;
+      }
+
+      @include tablet {
+        left: 10%;
       }
     }
   }
@@ -64,16 +69,30 @@
     }
   }
 
+  &__btn-container {
+    margin: 0 auto;
+    position: relative;
+    border-radius: 20px;
+    background-color: $dark-blue;
+  }
+
   &__search-btn {
+    position: relative;
+    top: -0.25rem;
+    left: -0.25rem;
     font-family: $brand-font-stack;
     font-size: 1rem;
     font-weight: 400;
-    background-color: $dark-blue;
     color: $light-blue;
     max-width: 20rem;
-    margin: 0 auto;
-    padding: 0.5rem 1.25rem;
+    border: 3.5px dashed $med-blue;
     border-radius: 20px;
+    padding: 0.5rem 1.25rem;
     cursor: pointer;
+
+    &:active {
+      top: 0;
+      left: 0;
+    }
   }
 }

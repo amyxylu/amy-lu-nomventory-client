@@ -40,16 +40,30 @@
     font-weight: 600;
   }
 
+  &__btn-container {
+    margin: 0 auto;
+    position: relative;
+    border-radius: 20px;
+    background-color: $dark-blue;
+  }
+
   &__save-btn {
+    position: relative;
+    top: -0.25rem;
+    left: -0.25rem;
     font-family: $brand-font-stack;
     font-size: 1rem;
     font-weight: 400;
-    background-color: $dark-blue;
     color: $light-blue;
     max-width: 20rem;
-    margin: 0 auto;
-    padding: 0.5rem 1.25rem;
+    border: 3.5px dashed $med-blue;
     border-radius: 20px;
+    padding: 0.5rem 1.25rem;
     cursor: pointer;
+
+    &:active {
+      top: 0;
+      left: 0;
+    }
   }
 }
