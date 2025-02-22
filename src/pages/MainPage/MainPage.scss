@@ -80,15 +80,9 @@
     position: relative;
     top: -0.25rem;
     left: -0.25rem;
-    font-family: $brand-font-stack;
-    font-size: 1rem;
-    font-weight: 400;
     color: $light-blue;
-    max-width: 20rem;
     border: 3.5px dashed $med-blue;
     border-radius: 20px;
-    padding: 0.5rem 1.25rem;
-    cursor: pointer;
 
     &:active {
       top: 0;
