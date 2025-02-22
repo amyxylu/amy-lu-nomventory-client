@@ -1,5 +1,6 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/keyframes" as *;
 
 .main-page {
   margin: $mobile-spacing;
@@ -29,6 +30,8 @@
       width: 90%;
       border: 3.5px dashed $dark-blue;
       margin: $mobile-spacing;
+      opacity: 0;
+      animation: fadeIn 2s ease-out forwards;
 
       @include tablet {
         width: 40rem;
@@ -37,9 +40,10 @@
 
     &-sticker {
       position: absolute;
-      bottom: 2.5%;
+      bottom: 2%;
       left: 2.5%;
       width: 25%;
+      animation: moveSideToSide 5s ease-in-out infinite;
 
       @include tablet {
         width: 12rem;
