@@ -3,10 +3,10 @@
 @use "../../styles/partials/keyframes" as *;
 
 .main-page {
-  margin: $mobile-spacing;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: $mobile-spacing;
 
   @include tablet {
     margin: 0 auto;
@@ -28,9 +28,8 @@
 
     &-img {
       width: 90%;
-      border: 3.5px dashed $dark-blue;
+      border: $thick-dash;
       margin: $mobile-spacing;
-      opacity: 0;
       animation: fadeIn 2s ease-out forwards;
 
       @include tablet {
@@ -43,7 +42,7 @@
       bottom: 2%;
       left: 2.5%;
       width: 25%;
-      animation: fadeIn 2s ease-out forwards,
+      animation: fadeIn 1.5s ease-out forwards,
         moveSideToSide 5s ease-in-out infinite;
 
       @include tablet {

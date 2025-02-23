@@ -2,11 +2,11 @@
 @use "../../styles/partials/variables" as *;
 
 .recipe-details-page {
-  margin: $mobile-spacing;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: $mobile-spacing;
+  margin: $mobile-spacing;
   background-color: $light-blue;
   border-radius: 12px;
 

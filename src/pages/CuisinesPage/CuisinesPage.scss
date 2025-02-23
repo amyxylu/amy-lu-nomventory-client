@@ -2,10 +2,10 @@
 @use "../../styles/partials/variables" as *;
 
 .cuisines-page {
-  margin: $mobile-spacing;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: $mobile-spacing;
   gap: $mobile-spacing;
 
   @include tablet {

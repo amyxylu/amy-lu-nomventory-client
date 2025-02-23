@@ -8,17 +8,17 @@
   border-radius: 12px;
 
   &__input-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 100%;
     padding: 0.5rem;
     border-radius: 12px;
     border: 2px solid $med-blue;
     font-family: $body-font-stack;
     color: $dark-blue;
     background-color: $bg-light;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    width: 100%;
-    max-width: 100%;
     margin: 0.5rem 0;
     min-height: 2.375rem;
     overflow: hidden;
@@ -39,7 +39,6 @@
       color: $light-blue;
       padding: 0 0.3rem;
       border-radius: 8px;
-      font-size: 0.875rem;
       white-space: nowrap;
       max-width: 100%;
       overflow: hidden;
@@ -47,7 +46,6 @@
       flex-shrink: 0;
 
       @include tablet {
-        font-size: 1rem;
         padding: 0.1rem 0.5rem;
       }
     }
@@ -70,10 +68,8 @@
     min-width: 120px;
     width: 100%;
     background: none;
-    font-family: $body-font-stack;
-    font-size: 1rem;
     color: $dark-blue;
-    padding: 5px;
+    padding: 0.3rem;
   }
 
   &__autocomplete {
@@ -90,11 +86,6 @@
       padding: 0.25rem 0.5rem;
       border-radius: 8px;
       cursor: pointer;
-      font-size: 0.875rem;
-
-      @include tablet {
-        font-size: 1rem;
-      }
 
       &:hover {
         background-color: $light-green;

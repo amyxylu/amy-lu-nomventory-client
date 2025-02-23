@@ -2,10 +2,10 @@
 @use "../../styles/partials/variables" as *;
 
 .preferences-page {
-  margin: $mobile-spacing;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: $mobile-spacing;
 
   @include tablet {
     margin: $tablet-spacing;
@@ -23,7 +23,7 @@
     background-color: $light-blue;
     border-radius: 12px;
     padding: $mobile-spacing;
-    border: 3.5px dashed $dark-blue;
+    border: $thick-dash;
     width: 75%;
 
     @include tablet {
