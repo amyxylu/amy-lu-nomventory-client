@@ -57,10 +57,10 @@ function RecipeCard({ recipe, className = "" }) {
         </div>
         <div className="recipe-card__content">
           <h3 className="recipe-card__header">{recipe.recipe_name}</h3>
-          <ul className="recipe-card__buttons">
-            <li className="recipe-card__btn">{totalCookTime} min</li>
-            <li className="recipe-card__btn">{recipe.difficulty_level}</li>
-            <li className="recipe-card__btn">{cuisineName}</li>
+          <ul className="recipe-card__metadata">
+            <li className="recipe-card__tag">{totalCookTime} min</li>
+            <li className="recipe-card__tag">{recipe.difficulty_level}</li>
+            <li className="recipe-card__tag">{cuisineName}</li>
           </ul>
           <p className="recipe-card__description">{recipe.description}</p>
           {recipe.match_percentage !== undefined && (
