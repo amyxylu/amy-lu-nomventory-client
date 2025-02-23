@@ -12,12 +12,3 @@
     @content;
   }
 }
-
-@mixin tag-style {
-  background-color: $dark-blue;
-  color: $light-blue;
-  font-size: 1rem;
-  font-family: $body-font-stack;
-  border-radius: 8px;
-  padding: 0.25rem 0.5rem;
-}
