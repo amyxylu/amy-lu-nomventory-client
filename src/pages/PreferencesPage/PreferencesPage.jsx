@@ -3,22 +3,17 @@ import IngredientSelector from "../../components/IngredientSelector/IngredientSe
 import "./PreferencesPage.scss";
 
 function PreferencesPage() {
-  const [excludedIngredients, setExcludedIngredients] = useState([]);
+  const [excludedIngredients, setExcludedIngredients] = useState(() => {
+    const stored = localStorage.getItem("excludedIngredients");
+    return stored ? JSON.parse(stored) : [];
+  });
 
   useEffect(() => {
-    const storedExcluded = localStorage.getItem("excludedIngredients");
-    if (storedExcluded) {
-      setExcludedIngredients(JSON.parse(storedExcluded));
-    }
-  }, []);
-
-  const handleSavePreferences = () => {
     localStorage.setItem(
       "excludedIngredients",
       JSON.stringify(excludedIngredients)
     );
-    alert("Preferences saved! Recipes will now exclude selected ingredients.");
-  };
+  }, [excludedIngredients]);
 
   return (
     <section className="preferences-page">
@@ -35,13 +30,6 @@ function PreferencesPage() {
           selectedIngredients={excludedIngredients}
           setSelectedIngredients={setExcludedIngredients}
         />
-        <div className="preferences-page__btn-container">
-          <button
-            onClick={handleSavePreferences}
-            className="preferences-page__save-btn">
-            Save Preferences
-          </button>
-        </div>
       </article>
     </section>
   );

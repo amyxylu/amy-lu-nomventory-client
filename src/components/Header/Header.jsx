@@ -2,13 +2,6 @@ import "./Header.scss";
 import { Link, useLocation } from "react-router-dom";
 
 function Header() {
-  //   const location = useLocation();
-
-  //   const isRecipesActive =
-  //     location.pathname === "/" || location.pathname.startsWith("/recipes");
-
-  //   const isCuisinesActive = location.pathname.startsWith("/cuisines");
-
   return (
     <header className="header">
       <Link to="/">

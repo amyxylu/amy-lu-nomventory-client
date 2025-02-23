@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { BASE_URL } from "../../config";
 import axios from "axios";
-import fullHeart from "../../assets/icons/heart-full.png"; // ✅ Available icon
-import emptyHeart from "../../assets/icons/heart-empty.png"; // ❌ Missing icon
+import fullHeart from "../../assets/icons/heart-full.png";
+import emptyHeart from "../../assets/icons/heart-empty.png";
 import "./RecipeDetailsCard.scss";
 
 function RecipeDetailsCard({ recipe, selectedIngredients, className = "" }) {

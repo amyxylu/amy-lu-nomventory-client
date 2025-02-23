@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { BASE_URL } from "../../config";
 import axios from "axios";
 import "./IngredientSelector.scss";
 import CloseIcon from "../../assets/icons/CloseIcon";
@@ -14,9 +15,7 @@ function IngredientSelector({ selectedIngredients, setSelectedIngredients }) {
   useEffect(() => {
     const getIngredients = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:8080/api/ingredients"
-        );
+        const response = await axios.get(`${BASE_URL}/api/ingredients`);
         const sortedIngredients = response.data.sort((a, b) =>
           a.ingredient_name.localeCompare(b.ingredient_name)
         );

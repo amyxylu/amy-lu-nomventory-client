@@ -7,32 +7,23 @@ import IngredientSelector from "../../components/IngredientSelector/IngredientSe
 
 function MainPage() {
   const navigate = useNavigate();
+
   const [selectedIngredients, setSelectedIngredients] = useState(() => {
-    // ✅ Load from localStorage initially (avoids flickering)
     const stored = localStorage.getItem("selectedIngredients");
     return stored ? JSON.parse(stored) : [];
   });
 
   const [excludedIngredients, setExcludedIngredients] = useState(() => {
-    // ✅ Load excluded ingredients on mount
     const stored = localStorage.getItem("excludedIngredients");
     return stored ? JSON.parse(stored) : [];
   });
 
-  // ✅ Ensure changes to state persist in localStorage
   useEffect(() => {
     localStorage.setItem(
       "selectedIngredients",
       JSON.stringify(selectedIngredients)
     );
   }, [selectedIngredients]);
-
-  useEffect(() => {
-    localStorage.setItem(
-      "excludedIngredients",
-      JSON.stringify(excludedIngredients)
-    );
-  }, [excludedIngredients]);
 
   const handleSearchRecipes = async () => {
     try {

@@ -1,6 +1,6 @@
-import { BASE_URL } from "../../config";
 import { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
+import { BASE_URL } from "../../config";
 import axios from "axios";
 import "./RecipeCard.scss";
 
