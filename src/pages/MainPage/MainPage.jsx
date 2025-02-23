@@ -1,20 +1,38 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { BASE_URL } from "../../config";
 import "./MainPage.scss";
 import IngredientSelector from "../../components/IngredientSelector/IngredientSelector";
 
 function MainPage() {
-  const [selectedIngredients, setSelectedIngredients] = useState([]);
-  const [excludedIngredients, setExcludedIngredients] = useState([]);
   const navigate = useNavigate();
+  const [selectedIngredients, setSelectedIngredients] = useState(() => {
+    // ✅ Load from localStorage initially (avoids flickering)
+    const stored = localStorage.getItem("selectedIngredients");
+    return stored ? JSON.parse(stored) : [];
+  });
+
+  const [excludedIngredients, setExcludedIngredients] = useState(() => {
+    // ✅ Load excluded ingredients on mount
+    const stored = localStorage.getItem("excludedIngredients");
+    return stored ? JSON.parse(stored) : [];
+  });
+
+  // ✅ Ensure changes to state persist in localStorage
+  useEffect(() => {
+    localStorage.setItem(
+      "selectedIngredients",
+      JSON.stringify(selectedIngredients)
+    );
+  }, [selectedIngredients]);
 
   useEffect(() => {
-    const storedExcluded = localStorage.getItem("excludedIngredients");
-    if (storedExcluded) {
-      setExcludedIngredients(JSON.parse(storedExcluded));
-    }
-  }, []);
+    localStorage.setItem(
+      "excludedIngredients",
+      JSON.stringify(excludedIngredients)
+    );
+  }, [excludedIngredients]);
 
   const handleSearchRecipes = async () => {
     try {
@@ -24,18 +42,16 @@ function MainPage() {
       const excludedIds = excludedIngredients.map(
         (ingredient) => ingredient.id
       );
-      if (ingredientIds.length === 0) {
-        alert("Please select at least one ingredient.");
-        return;
-      }
 
-      const response = await axios.post(
-        "http://localhost:8080/api/filters/recipes",
-        {
+      let response;
+      if (ingredientIds.length === 0) {
+        response = await axios.get(`${BASE_URL}/api/recipes`);
+      } else {
+        response = await axios.post(`${BASE_URL}/api/filters/recipes`, {
           ingredients: ingredientIds,
           excludeIngredients: excludedIds,
-        }
-      );
+        });
+      }
 
       navigate("/recipes", {
         state: { recipes: response.data, selectedIngredients },

@@ -46,13 +46,15 @@ function RecipeCard({ recipe, className = "" }) {
         to={`/recipes/${recipe.id}`}
         state={{ recipe, selectedIngredients }}
         className="recipe-card__link">
-        {recipe.image_url && (
-          <img
-            src={imageUrl}
-            alt={recipe.recipe_name}
-            className="recipe-card__image"
-          />
-        )}
+        <div className="recipe-card__image-container">
+          {recipe.image_url && (
+            <img
+              src={imageUrl}
+              alt={recipe.recipe_name}
+              className="recipe-card__image"
+            />
+          )}
+        </div>
         <div className="recipe-card__content">
           <h3 className="recipe-card__header">{recipe.recipe_name}</h3>
           <ul className="recipe-card__buttons">

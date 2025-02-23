@@ -17,7 +17,6 @@ function IngredientSelector({ selectedIngredients, setSelectedIngredients }) {
         const response = await axios.get(
           "http://localhost:8080/api/ingredients"
         );
-
         const sortedIngredients = response.data.sort((a, b) =>
           a.ingredient_name.localeCompare(b.ingredient_name)
         );
@@ -48,15 +47,25 @@ function IngredientSelector({ selectedIngredients, setSelectedIngredients }) {
 
   const handleSelectIngredient = (ingredient) => {
     if (!selectedIngredients.some((item) => item.id === ingredient.id)) {
-      setSelectedIngredients([...selectedIngredients, ingredient]);
+      const updatedIngredients = [...selectedIngredients, ingredient];
+      setSelectedIngredients(updatedIngredients);
+      localStorage.setItem(
+        "selectedIngredients",
+        JSON.stringify(updatedIngredients)
+      );
     }
     setSearchTerm("");
     setFilteredIngredients([]);
   };
 
   const handleRemoveIngredient = (ingredientId) => {
-    setSelectedIngredients(
-      selectedIngredients.filter((item) => item.id !== ingredientId)
+    const updatedIngredients = selectedIngredients.filter(
+      (item) => item.id !== ingredientId
+    );
+    setSelectedIngredients(updatedIngredients);
+    localStorage.setItem(
+      "selectedIngredients",
+      JSON.stringify(updatedIngredients)
     );
   };
 

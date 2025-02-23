@@ -29,12 +29,14 @@
     @include tablet {
       flex-direction: row;
       flex-wrap: wrap;
-      max-width: 60rem;
+      max-width: 63rem;
+      gap: $tablet-spacing;
+      padding: 0 $tablet-spacing;
       margin: 0 auto;
 
       & > * {
-        flex: 1 1 calc(50% - ($mobile-spacing / 2));
-        max-width: calc(50% - ($mobile-spacing / 2));
+        flex: 1 1 calc(50% - ($tablet-spacing / 2));
+        max-width: calc(50% - ($tablet-spacing / 2));
       }
     }
   }
