@@ -1,10 +1,13 @@
 import { BASE_URL } from "../../config";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import axios from "axios";
 import "./RecipeCard.scss";
 
 function RecipeCard({ recipe, className = "" }) {
+  const location = useLocation();
+  const selectedIngredients = location.state?.selectedIngredients || [];
+
   const [cuisineName, setCuisineName] = useState("");
 
   useEffect(() => {
@@ -39,7 +42,10 @@ function RecipeCard({ recipe, className = "" }) {
 
   return (
     <article className={`recipe-card ${className}`}>
-      <Link to={`/recipes/${recipe.id}`} className="recipe-card__link">
+      <Link
+        to={`/recipes/${recipe.id}`}
+        state={{ recipe, selectedIngredients }}
+        className="recipe-card__link">
         {recipe.image_url && (
           <img
             src={imageUrl}

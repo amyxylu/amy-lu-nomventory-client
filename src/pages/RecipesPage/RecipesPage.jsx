@@ -42,7 +42,11 @@ function RecipesPage() {
       ) : (
         <div className="recipes-page__recipes">
           {recipes.map((recipe) => (
-            <RecipeCard key={recipe.id} recipe={recipe} />
+            <RecipeCard
+              key={recipe.id}
+              recipe={recipe}
+              selectedIngredients={location.state?.selectedIngredients || []}
+            />
           ))}
         </div>
       )}

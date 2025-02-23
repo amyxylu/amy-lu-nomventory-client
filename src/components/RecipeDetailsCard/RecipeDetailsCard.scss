@@ -59,21 +59,34 @@
   }
 
   &__ingredients {
+    width: 20rem;
+    margin: 0 auto;
+
     &-header {
       text-align: center;
-      //   font-size: 1.125rem;
-
-      //   @include tablet {
-      //     font-size: 1.375rem;
-      //   }
     }
 
     &-list {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      background-color: $light-blue;
+      padding: $mobile-spacing;
+      border-radius: 20px;
+      border: 2.5px dashed $med-blue;
+    }
+
+    &-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    &-item {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
     }
   }
+
   &__list {
     display: flex;
     flex-direction: column;

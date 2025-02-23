@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { BASE_URL } from "../../config";
 import axios from "axios";
 import RecipeDetailsCard from "../../components/RecipeDetailsCard/RecipeDetailsCard";
@@ -7,8 +7,11 @@ import "./RecipeDetailsPage.scss";
 
 function RecipeDetailsPage() {
   const { recipeId } = useParams();
+  const location = useLocation();
   const [recipe, setRecipe] = useState(null);
   const [error, setError] = useState(null);
+
+  const selectedIngredients = location.state?.selectedIngredients || [];
 
   useEffect(() => {
     const getRecipe = async () => {
@@ -26,11 +29,13 @@ function RecipeDetailsPage() {
 
   return (
     <section className="recipe-details-page">
-      {/* <h1 className="recipe-details-page__header">{recipe.recipe_name}</h1> */}
       {error ? (
         <p className="recipe-details-page__error">{error}</p>
       ) : recipe ? (
-        <RecipeDetailsCard recipe={recipe} />
+        <RecipeDetailsCard
+          recipe={recipe}
+          selectedIngredients={selectedIngredients}
+        />
       ) : (
         <p className="recipe-details-page__loading">Loading...</p>
       )}

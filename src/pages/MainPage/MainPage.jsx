@@ -37,7 +37,9 @@ function MainPage() {
         }
       );
 
-      navigate("/recipes", { state: { recipes: response.data } });
+      navigate("/recipes", {
+        state: { recipes: response.data, selectedIngredients },
+      });
     } catch (err) {
       console.error("Error fetching recipes:", err);
       alert("Failed to fetch recipes. Please try again.");

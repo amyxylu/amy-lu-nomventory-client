@@ -1,18 +1,23 @@
-import { BASE_URL } from "../../config";
 import { useEffect, useState } from "react";
+import { BASE_URL } from "../../config";
 import axios from "axios";
+import fullHeart from "../../assets/icons/heart-full.png"; // ✅ Available icon
+import emptyHeart from "../../assets/icons/heart-empty.png"; // ❌ Missing icon
 import "./RecipeDetailsCard.scss";
 
-function RecipeDetailsCard({ recipe, className = "" }) {
+function RecipeDetailsCard({ recipe, selectedIngredients, className = "" }) {
   const [cuisineName, setCuisineName] = useState("");
   const [ingredients, setIngredients] = useState([]);
+
+  if (!recipe) {
+    return <p className="recipe-details__error">Recipe not found.</p>;
+  }
 
   useEffect(() => {
     const getCuisineName = async () => {
       try {
         const response = await axios.get(`${BASE_URL}/api/cuisines`);
         const cuisines = response.data;
-
         const matchedCuisine = cuisines.find(
           (cuisine) => cuisine.id === recipe.cuisine_id
         );
@@ -21,13 +26,15 @@ function RecipeDetailsCard({ recipe, className = "" }) {
         );
       } catch (error) {
         console.error("Error fetching cuisines:", error);
-        setCuisineName("?");
       }
     };
-    getCuisineName();
-  }, [recipe.cuisine_id]);
 
-  const imageUrl = recipe.image_url
+    if (recipe?.cuisine_id) {
+      getCuisineName();
+    }
+  }, [recipe?.cuisine_id]);
+
+  const imageUrl = recipe?.image_url
     ? `${BASE_URL}${
         recipe.image_url.startsWith("/")
           ? recipe.image_url
@@ -47,10 +54,13 @@ function RecipeDetailsCard({ recipe, className = "" }) {
       }
     };
 
-    if (recipe.id) {
+    if (recipe?.id) {
       getIngredients();
     }
-  }, [recipe.id]);
+  }, [recipe?.id]);
+
+  const selectedNames =
+    selectedIngredients?.map((ing) => ing.ingredient_name.toLowerCase()) || [];
 
   const formatTextWithBold = (text) => {
     const parts = text.split(/(\*\*.*?\*\*)/g);
@@ -98,15 +108,22 @@ function RecipeDetailsCard({ recipe, className = "" }) {
         <div className="recipe-details__ingredients">
           <h3 className="recipe-details__ingredients-header">Ingredients</h3>
           <ul className="recipe-details__ingredients-list">
-            {ingredients.length > 0 ? (
-              ingredients.map((ingredient, index) => (
+            {ingredients.map((ingredient, index) => {
+              const isAvailable = selectedNames.includes(
+                ingredient.ingredient_name.toLowerCase()
+              );
+              return (
                 <li key={index} className="recipe-details__ingredients-item">
-                  {ingredient.quantity} {ingredient.ingredient_name}
+                  <img
+                    src={isAvailable ? fullHeart : emptyHeart}
+                    alt={isAvailable ? "Available" : "Missing"}
+                    className="recipe-details__ingredients-icon"
+                  />
+                  {ingredient.quantity} {ingredient.unit} -{" "}
+                  {ingredient.ingredient_name}
                 </li>
-              ))
-            ) : (
-              <p>No ingredients available.</p>
-            )}
+              );
+            })}
           </ul>
         </div>
 
