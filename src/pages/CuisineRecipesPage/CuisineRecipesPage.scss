@@ -9,12 +9,13 @@
   gap: $mobile-spacing;
 
   @include tablet {
-    margin: $tablet-spacing auto;
+    margin: $tablet-spacing;
     gap: $tablet-spacing;
   }
 
   @include desktop {
-    max-width: 31.5rem;
+    max-width: 63rem;
+    margin: $tablet-spacing auto;
   }
 
   &__header {
@@ -35,5 +36,9 @@
 .recipe-card {
   &--cuisine {
     width: 100%;
+    @include tablet {
+      width: 50%;
+      margin: 0 auto;
+    }
   }
 }
