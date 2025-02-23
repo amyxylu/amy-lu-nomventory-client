@@ -34,6 +34,7 @@
     &-item {
       display: inline-flex;
       align-items: center;
+      gap: 0.5rem;
       background-color: $dark-blue;
       color: $light-blue;
       padding: 0 0.3rem;
@@ -50,8 +51,12 @@
         padding: 0.1rem 0.5rem;
       }
     }
+  }
 
-    &-remove {
+  &__remove {
+    padding: 0;
+
+    &-icon {
       width: 1rem;
       color: $light-blue;
       cursor: pointer;

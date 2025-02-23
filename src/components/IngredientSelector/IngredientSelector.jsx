@@ -80,8 +80,10 @@ function IngredientSelector({ selectedIngredients, setSelectedIngredients }) {
               key={ingredient.id}
               className="ingredient-selector__selected-item">
               {ingredient.ingredient_name}
-              <button onClick={() => handleRemoveIngredient(ingredient.id)}>
-                <CloseIcon className="ingredient-selector__selected-remove" />
+              <button
+                onClick={() => handleRemoveIngredient(ingredient.id)}
+                className="ingredient-selector__remove">
+                <CloseIcon className="ingredient-selector__remove-icon" />
               </button>
             </span>
           ))}
