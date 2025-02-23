@@ -114,13 +114,17 @@ function RecipeDetailsCard({ recipe, selectedIngredients, className = "" }) {
               );
               return (
                 <li key={index} className="recipe-details__ingredients-item">
-                  <img
-                    src={isAvailable ? fullHeart : emptyHeart}
-                    alt={isAvailable ? "Available" : "Missing"}
-                    className="recipe-details__ingredients-icon"
-                  />
-                  {ingredient.quantity} {ingredient.unit} -{" "}
-                  {ingredient.ingredient_name}
+                  <div className="recipe-details__ingredients-left">
+                    <img
+                      src={isAvailable ? fullHeart : emptyHeart}
+                      alt={isAvailable ? "Available" : "Missing"}
+                      className="recipe-details__ingredients-icon"
+                    />
+                    {ingredient.ingredient_name}
+                  </div>
+                  <div className="recipe-details__ingredients-right">
+                    {ingredient.quantity} {ingredient.unit}
+                  </div>
                 </li>
               );
             })}

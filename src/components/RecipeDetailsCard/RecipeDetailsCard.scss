@@ -59,6 +59,9 @@
   }
 
   &__ingredients {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
     width: 20rem;
     margin: 0 auto;
 
@@ -69,6 +72,7 @@
     &-list {
       display: flex;
       flex-direction: column;
+      gap: 0.5rem;
       background-color: $light-blue;
       padding: $mobile-spacing;
       border-radius: 20px;
@@ -84,6 +88,12 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+    }
+
+    &-left {
+      display: flex;
+      align-items: center;
+      gap: $mobile-spacing;
     }
   }
 
