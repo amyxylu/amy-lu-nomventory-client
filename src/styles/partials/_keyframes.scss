@@ -12,9 +12,9 @@
     transform: translateX(0);
   }
   50% {
-    transform: translateX(250%); // Moves right
+    transform: translateX(250%);
   }
   100% {
-    transform: translateX(0); // Moves back to original position
+    transform: translateX(0);
   }
 }

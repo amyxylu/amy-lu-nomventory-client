@@ -14,7 +14,10 @@ With food waste being a growing issue, **Nomventory aims to reduce waste** by in
 
 - **User Authentication** – Save preferences and favorite recipes.
 - **Smarter Ingredient Filtering** – Improve recipe suggestions based on user behavior.
+- **Social Features** - Allow users to Like or Comment on existing recipes, or even share their own recipes!
 - **Gamification** – Challenges, rewards, and achievements to enhance engagement.
+
+**For more information, check out my Project Proposal ReadMe on the Server Side**
 
 ## Set-up Instructions
 
@@ -34,4 +37,4 @@ With food waste being a growing issue, **Nomventory aims to reduce waste** by in
 2. Open Terminal and run `npm install`
 3. Create a **.env** file and copy the text over from .env.sample. Update the base url if necessary, to match your server side port set up.
 4. Using terminal, run `npm run dev`
-5. Open browser link and enjoy the experience!
+5. Open browser link and enjoy! Make sure you click the play button on the media bar below, for the full experience!
