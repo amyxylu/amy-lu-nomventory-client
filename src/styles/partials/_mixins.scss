@@ -13,11 +13,6 @@
   }
 }
 
-@mixin form-focus {
-  border: 2px solid $dark-blue;
-  outline: none;
-}
-
 @mixin tag-style {
   background-color: $dark-blue;
   color: $light-blue;
