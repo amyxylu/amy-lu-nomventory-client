@@ -22,6 +22,33 @@
     text-align: center;
   }
 
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $mobile-spacing;
+    margin: 0 auto;
+
+    @include tablet {
+      gap: $tablet-spacing;
+      flex-direction: row;
+    }
+  }
+
+  &__image-container {
+    width: 50%;
+    margin: 0 auto;
+
+    @include tablet {
+      width: 40%;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    border: 3.5px dashed $dark-blue;
+    border-radius: 12px;
+  }
+
   &__recipes {
     display: flex;
     flex-direction: column;
@@ -29,6 +56,7 @@
 
     @include tablet {
       gap: $tablet-spacing;
+      width: 60%;
     }
   }
 }
@@ -36,9 +64,5 @@
 .recipe-card {
   &--cuisine {
     width: 100%;
-    @include tablet {
-      width: 50%;
-      margin: 0 auto;
-    }
   }
 }

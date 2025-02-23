@@ -9,6 +9,7 @@ function CuisineRecipesPage() {
   const { cuisineId } = useParams();
   const [recipes, setRecipes] = useState([]);
   const [cuisineName, setCuisineName] = useState("");
+  const [cuisineImage, setCuisineImage] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -24,6 +25,16 @@ function CuisineRecipesPage() {
           `${BASE_URL}/api/cuisines/${cuisineId}`
         );
         setCuisineName(cuisineResponse.data.cuisine_name);
+
+        setCuisineImage(
+          cuisineResponse.data.image_url
+            ? `${BASE_URL}${
+                cuisineResponse.data.image_url.startsWith("/")
+                  ? cuisineResponse.data.image_url
+                  : `/${cuisineResponse.data.image_url}`
+              }`
+            : "./src/assets/images/cooking_mascot.jpg"
+        );
       } catch (err) {
         console.error("Error fetching recipes:", err);
         setError("Failed to load recipes.");
@@ -34,6 +45,7 @@ function CuisineRecipesPage() {
 
     getCuisineRecipes();
   }, [cuisineId]);
+
   return (
     <section className="cuisine-recipes-page">
       <h1 className="cuisine-recipes-page__header">
@@ -47,14 +59,30 @@ function CuisineRecipesPage() {
       ) : recipes.length === 0 ? (
         <p>No recipes found for this cuisine.</p>
       ) : (
-        <div className="cuisine-recipes-page__recipes">
-          {recipes.map((recipe) => (
-            <RecipeCard
-              key={recipe.id}
-              recipe={recipe}
-              className="recipe-card--cuisine"
-            />
-          ))}
+        <div className="cuisine-recipes-page__content">
+          {cuisineImage && (
+            <div className="cuisine-recipes-page__image-container">
+              <img
+                src={cuisineImage}
+                alt={cuisineName}
+                className="cuisine-recipes-page__image"
+              />
+            </div>
+          )}
+
+          <div className="cuisine-recipes-page__recipes">
+            {recipes.length === 0 ? (
+              <p>No recipes found for this cuisine.</p>
+            ) : (
+              recipes.map((recipe) => (
+                <RecipeCard
+                  key={recipe.id}
+                  recipe={recipe}
+                  className="recipe-card--cuisine"
+                />
+              ))
+            )}
+          </div>
         </div>
       )}
     </section>

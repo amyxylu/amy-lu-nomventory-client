@@ -13,6 +13,7 @@
   }
 
   @include desktop {
+    margin: 0 auto;
     max-width: 63rem;
   }
 
@@ -20,7 +21,7 @@
     padding: $mobile-spacing 0;
   }
 
-  .recipes-page__recipes {
+  &__recipes {
     display: flex;
     flex-direction: column;
     gap: $mobile-spacing;
