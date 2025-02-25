@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import fridge from "/src/assets/images/fridge.jpg";
+import bounce from "/src/assets/images/Bounce.gif";
 import { BASE_URL } from "../../config";
 import "./MainPage.scss";
 import IngredientSelector from "../../components/IngredientSelector/IngredientSelector";
@@ -56,14 +58,8 @@ function MainPage() {
   return (
     <section className="main-page">
       <article className="main-page__hero">
-        <img
-          src="/src/assets/images/fridge.jpg"
-          className="main-page__hero-img"
-        />
-        <img
-          src="/src/assets/images/Bounce.gif"
-          className="main-page__hero-sticker"
-        />
+        <img src={fridge} className="main-page__hero-img" />
+        <img src={bounce} className="main-page__hero-sticker" />
       </article>
       <article className="main-page__content">
         <h1 className="main-page__content-title">Select your ingredients:</h1>
