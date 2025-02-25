@@ -24,10 +24,10 @@
     border-radius: 12px;
     padding: $mobile-spacing;
     border: $thick-dash;
-    width: 75%;
 
     @include tablet {
       padding: $tablet-spacing;
+      width: 75%;
     }
   }
 
